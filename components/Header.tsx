@@ -31,6 +31,7 @@ const Header: React.FC = () => {
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-8">
+          <a href="/blog" className="text-sm font-medium text-gray-600 hover:text-black transition-colors">Blog</a>
           <a href="#pricing" className="text-sm font-medium text-gray-600 hover:text-black transition-colors">Pricing</a>
           <a href="#faq" className="text-sm font-medium text-gray-600 hover:text-black transition-colors">FAQ</a>
           <a href="#about" className="text-sm font-medium text-gray-600 hover:text-black transition-colors">About</a>
@@ -56,6 +57,7 @@ const Header: React.FC = () => {
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <div className="absolute top-full left-0 right-0 bg-white border-b border-gray-100 p-5 md:hidden flex flex-col gap-4 shadow-xl">
+          <a href="/blog" className="text-base font-medium py-2">Blog</a>
           <a href="#pricing" className="text-base font-medium py-2">Pricing</a>
           <a href="#faq" className="text-base font-medium py-2">FAQ</a>
           <button className="bg-brand-black text-white w-full py-3 rounded-lg font-medium">

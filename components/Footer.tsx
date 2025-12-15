@@ -24,7 +24,7 @@ const Footer: React.FC = () => {
               <li><a href="#" className="hover:text-black">Features</a></li>
               <li><a href="#" className="hover:text-black">Pricing</a></li>
               <li><a href="#" className="hover:text-black">Download</a></li>
-              <li><a href="#" className="hover:text-black">Changelog</a></li>
+              <li><a href="/blog" className="hover:text-black">Blog</a></li>
             </ul>
           </div>
 
