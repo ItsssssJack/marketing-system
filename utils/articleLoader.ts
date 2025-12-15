@@ -25,6 +25,12 @@ export function getAllArticles(): Article[] {
     // Extract slug from file path: ../content/articles/my-article.md -> my-article
     const slug = path.split('/').pop()?.replace('.md', '') || '';
 
+    // Skip TEMPLATE file
+    if (slug === 'TEMPLATE') {
+      console.log('Skipping TEMPLATE file');
+      continue;
+    }
+
     console.log(`Processing article: ${slug}, markdown type: ${typeof markdown}, length: ${(markdown as string)?.length || 0}`);
 
     if (!markdown || typeof markdown !== 'string') {

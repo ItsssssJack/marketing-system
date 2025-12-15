@@ -1,0 +1,18 @@
+{
+  "/": {
+    "h1": "Write 5x faster in every app",
+    "title": "Work at the speed of thought",
+    "description": "Write 5x faster in every app. Speak naturally, your words appear instantly. Save 20+ hours every month with Glaido voice-to-text.",
+    "canonical": "https://glaido.com",
+    "ogType": "website",
+    "keywords": ["voice to text", "voice typing", "productivity", "speech to text", "dictation software"]
+  },
+  "/blog": {
+    "h1": "From the Glaido Blog",
+    "title": "Blog",
+    "description": "Insights, tips, and updates on voice-to-text technology, productivity, and the future of work from the Glaido team.",
+    "canonical": "https://glaido.com/blog",
+    "ogType": "website",
+    "keywords": ["voice to text blog", "productivity tips", "voice typing tutorials", "future of work"]
+  }
+}

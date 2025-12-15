@@ -2,7 +2,16 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Mic, Zap, Keyboard, ArrowRight } from 'lucide-react';
 
-const Hero: React.FC = () => {
+interface HeroProps {
+  h1?: string;
+}
+
+const Hero: React.FC<HeroProps> = ({ h1 = "Write 5x faster in every app" }) => {
+  // Split the h1 for styling - look for "in" to create the emphasized part
+  const h1Parts = h1.split(/(\bin\s+.+)$/i);
+  const mainPart = h1Parts[0]?.trim() || h1;
+  const emphasizedPart = h1Parts[1]?.trim() || '';
+
   return (
     <section className="relative w-full pt-32 pb-24 md:pt-48 md:pb-32 overflow-hidden">
       {/* Animated Background */}
@@ -14,9 +23,9 @@ const Hero: React.FC = () => {
 
       <div className="relative z-10 max-w-7xl mx-auto px-5 md:px-10">
         <div className="flex flex-col items-center text-center">
-          
+
           {/* Badge */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -27,17 +36,20 @@ const Hero: React.FC = () => {
           </motion.div>
 
           {/* Headline */}
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-6xl md:text-8xl font-bold tracking-tighter text-brand-black leading-[0.9] mb-6 md:mb-8"
           >
-            Write 5x faster <br className="hidden md:block" />
-            <span className="relative inline-block">
-              in every app
-              <span className="absolute -bottom-2 left-0 right-0 h-4 bg-brand-lime/50 -z-10 -rotate-1 rounded-sm"></span>
-            </span>
+            {mainPart} {emphasizedPart && <br className="hidden md:block" />}
+            {emphasizedPart && (
+              <span className="relative inline-block">
+                {emphasizedPart}
+                <span className="absolute -bottom-2 left-0 right-0 h-4 bg-brand-lime/50 -z-10 -rotate-1 rounded-sm"></span>
+              </span>
+            )}
+            {!emphasizedPart && mainPart}
           </motion.h1>
 
           {/* Subheadline */}

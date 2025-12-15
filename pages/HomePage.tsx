@@ -11,27 +11,31 @@ import SEOHead from '../components/seo/SEOHead';
 import StructuredData, { generateOrganizationSchema, generateWebSiteSchema } from '../components/seo/StructuredData';
 import { getAllArticles } from '../utils/articleLoader';
 import { formatDate } from '../utils/articleUtils';
+import { getPageMetadata } from '../content/seo';
 
 const HomePage: React.FC = () => {
   const recentArticles = getAllArticles().slice(0, 3);
+  const pageMetadata = getPageMetadata('/');
 
   const organizationSchema = generateOrganizationSchema();
   const websiteSchema = generateWebSiteSchema();
 
   return (
     <div className="min-h-screen flex flex-col bg-white text-brand-black selection:bg-brand-lime selection:text-brand-black">
-      <SEOHead
-        title="Work at the speed of thought"
-        description="Write 5x faster in every app. Speak naturally, your words appear instantly. Save 20+ hours every month with Glaido voice-to-text."
-        canonical="https://glaido.com"
-        ogType="website"
-      />
+      {pageMetadata && (
+        <SEOHead
+          title={pageMetadata.title}
+          description={pageMetadata.description}
+          canonical={pageMetadata.canonical}
+          ogType={pageMetadata.ogType}
+        />
+      )}
       <StructuredData data={organizationSchema} />
       <StructuredData data={websiteSchema} />
 
       <Header />
       <main className="flex-grow">
-        <Hero />
+        <Hero h1={pageMetadata?.h1} />
         <Testimonials />
         <ValueProp />
 

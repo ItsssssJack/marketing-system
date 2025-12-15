@@ -35,12 +35,15 @@ export function parseMarkdownArticle(markdown: string, slug: string): Article {
   const readTime = Math.ceil(wordCount / 200);
 
   // Configure marked to add IDs to headings
+  // Also convert H1s to H2s to avoid duplicate H1s (page already has one H1 with the title)
   const renderer = new marked.Renderer();
   const originalHeading = renderer.heading.bind(renderer);
 
   renderer.heading = function({ text, depth, tokens }) {
+    // Convert H1s to H2s to avoid SEO issues with duplicate H1 tags
+    const actualDepth = depth === 1 ? 2 : depth;
     const id = generateSlug(typeof text === 'string' ? text : tokens?.[0]?.text || '');
-    return `<h${depth} id="${id}">${text}</h${depth}>`;
+    return `<h${actualDepth} id="${id}">${text}</h${actualDepth}>`;
   };
 
   // Convert markdown to HTML

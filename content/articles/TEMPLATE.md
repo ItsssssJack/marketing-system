@@ -3,7 +3,7 @@ title: "Your Article Title Here"
 description: "A compelling 150-character description that will appear in search results and social media previews."
 date: "2025-12-15"
 author: "Author Name"
-image: "/blog/your-article-image.jpg"
+image: "/blog/featured-placeholder.svg"
 tags: ["productivity", "voice-to-text", "tutorial"]
 ---
 

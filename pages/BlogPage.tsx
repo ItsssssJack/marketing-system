@@ -7,11 +7,13 @@ import SEOHead from '../components/seo/SEOHead';
 import StructuredData, { generateBreadcrumbSchema } from '../components/seo/StructuredData';
 import { Article, formatDate } from '../utils/articleUtils';
 import { getAllArticles } from '../utils/articleLoader';
+import { getPageMetadata } from '../content/seo';
 
 const BlogPage: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
   const allArticles = getAllArticles();
+  const pageMetadata = getPageMetadata('/blog');
 
   // Get all unique tags
   const allTags = useMemo(() => {
@@ -43,12 +45,14 @@ const BlogPage: React.FC = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
-      <SEOHead
-        title="Blog"
-        description="Insights, tips, and updates on voice-to-text technology, productivity, and the future of work from the Glaido team."
-        canonical={`${siteUrl}/blog`}
-        ogType="website"
-      />
+      {pageMetadata && (
+        <SEOHead
+          title={pageMetadata.title}
+          description={pageMetadata.description}
+          canonical={pageMetadata.canonical}
+          ogType={pageMetadata.ogType}
+        />
+      )}
       <StructuredData data={breadcrumbSchema} />
 
       <Header />
@@ -62,7 +66,7 @@ const BlogPage: React.FC = () => {
 
           <div className="relative max-w-4xl">
             <h1 className="text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter text-brand-black mb-8 leading-[0.9]">
-              From the Glaido Blog
+              {pageMetadata?.h1 || 'From the Glaido Blog'}
             </h1>
             <p className="text-2xl md:text-3xl text-gray-700 leading-relaxed font-medium max-w-2xl">
               Insights, tips, and updates on voice-to-text technology, productivity, and the future of work.
