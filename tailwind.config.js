@@ -5,12 +5,28 @@ export default {
     "./index.tsx",
     "./App.tsx",
     "./components/**/*.{js,ts,jsx,tsx}",
+    "./pages/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
       colors: {
         brand: {
-          lime: '#BFF549',
+          lime: {
+            50: '#F7FEE7',
+            100: '#ECFCCB',
+            200: '#D9F99D',
+            300: '#BFF549',  // Primary brand color
+            400: '#A4E635',
+            500: '#84CC16',
+            600: '#65A30D',
+            DEFAULT: '#BFF549', // Maintain backwards compatibility
+          },
+          accent: {
+            purple: '#A78BFA',
+            teal: '#2DD4BF',
+            coral: '#FB7185',
+            yellow: '#FCD34D',
+          },
           black: '#000000',
           white: '#FFFFFF',
           gray: '#F5F5F5',

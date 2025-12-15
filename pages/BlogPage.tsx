@@ -55,12 +55,16 @@ const BlogPage: React.FC = () => {
 
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="max-w-7xl mx-auto px-5 md:px-10 pt-32 pb-16">
-          <div className="max-w-3xl">
-            <h1 className="text-5xl md:text-6xl font-bold tracking-tighter text-brand-black mb-6 leading-tight">
+        <section className="relative max-w-7xl mx-auto px-5 md:px-10 pt-40 pb-24 overflow-hidden">
+          {/* Background decorative elements */}
+          <div className="absolute top-20 right-10 w-64 h-64 bg-brand-lime-200 rounded-full opacity-20 blur-3xl"></div>
+          <div className="absolute top-40 left-0 w-48 h-48 bg-brand-accent-purple rounded-full opacity-10 blur-3xl"></div>
+
+          <div className="relative max-w-4xl">
+            <h1 className="text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter text-brand-black mb-8 leading-[0.9]">
               From the Glaido Blog
             </h1>
-            <p className="text-xl text-gray-600 leading-relaxed">
+            <p className="text-2xl md:text-3xl text-gray-700 leading-relaxed font-medium max-w-2xl">
               Insights, tips, and updates on voice-to-text technology, productivity, and the future of work.
             </p>
           </div>
@@ -124,24 +128,31 @@ const BlogPage: React.FC = () => {
                   to={`/blog/${filteredArticles[0].slug}`}
                   className="group block"
                 >
-                  <article className="grid md:grid-cols-2 gap-8 items-center bg-gradient-to-br from-brand-lime/5 to-brand-lime/10 rounded-3xl overflow-hidden p-8 md:p-12 hover:shadow-2xl transition-all duration-500">
+                  <article className="relative grid md:grid-cols-2 gap-10 items-center bg-gradient-to-br from-brand-lime-100 via-brand-lime-50 to-white rounded-3xl overflow-hidden p-10 md:p-16 lg:p-20 hover:shadow-[0_25px_80px_-15px_rgba(191,245,73,0.4)] transition-all duration-700 border-2 border-brand-lime-200">
+                    {/* Decorative background blobs */}
+                    <div className="absolute -top-20 -right-20 w-80 h-80 bg-brand-accent-teal rounded-full opacity-10 blur-3xl"></div>
+                    <div className="absolute -bottom-20 -left-20 w-60 h-60 bg-brand-accent-yellow rounded-full opacity-10 blur-3xl"></div>
+
                     {/* Hero Image */}
                     {filteredArticles[0].image && (
-                      <div className="order-2 md:order-1 rounded-2xl overflow-hidden aspect-[4/3] bg-white">
+                      <div className="relative order-2 md:order-1 rounded-2xl overflow-hidden aspect-[4/3] bg-white shadow-2xl ring-4 ring-white">
                         <img
                           src={filteredArticles[0].image}
                           alt={filteredArticles[0].title}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                          className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700"
                         />
                       </div>
                     )}
 
                     {/* Hero Content */}
-                    <div className="order-1 md:order-2 space-y-6">
+                    <div className="relative order-1 md:order-2 space-y-6">
                       {/* Featured Badge */}
-                      <div className="inline-flex items-center gap-2 px-4 py-2 bg-brand-black text-white text-sm font-bold rounded-full">
-                        <span className="w-2 h-2 bg-brand-lime rounded-full animate-pulse"></span>
-                        FEATURED
+                      <div className="inline-flex items-center gap-3 px-5 py-2.5 bg-brand-black text-white text-sm font-black rounded-full shadow-lg">
+                        <span className="relative flex h-3 w-3">
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-lime opacity-75"></span>
+                          <span className="relative inline-flex rounded-full h-3 w-3 bg-brand-lime"></span>
+                        </span>
+                        FEATURED ARTICLE
                       </div>
 
                       {/* Tags */}
@@ -150,7 +161,7 @@ const BlogPage: React.FC = () => {
                           {filteredArticles[0].tags.map(tag => (
                             <span
                               key={tag}
-                              className="px-3 py-1 bg-white text-brand-black text-sm font-medium rounded-full"
+                              className="px-4 py-1.5 bg-white text-brand-black text-sm font-bold rounded-full shadow-sm border border-brand-lime-300"
                             >
                               {tag}
                             </span>
@@ -159,35 +170,35 @@ const BlogPage: React.FC = () => {
                       )}
 
                       {/* Title */}
-                      <h2 className="text-4xl md:text-5xl font-bold tracking-tight group-hover:text-brand-black/80 transition-colors leading-tight">
+                      <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight group-hover:text-brand-lime-600 transition-colors leading-[1.1]">
                         {filteredArticles[0].title}
                       </h2>
 
                       {/* Description */}
-                      <p className="text-lg text-gray-700 leading-relaxed">
+                      <p className="text-xl md:text-2xl text-gray-800 leading-relaxed font-medium">
                         {filteredArticles[0].description}
                       </p>
 
                       {/* Meta Info */}
-                      <div className="flex items-center gap-6 text-sm text-gray-600 pt-4 border-t border-gray-200">
+                      <div className="flex items-center gap-6 text-base font-semibold text-gray-700 pt-6 border-t-2 border-brand-lime-300">
                         <div className="flex items-center gap-2">
-                          <Calendar size={16} />
+                          <Calendar size={18} className="text-brand-lime-600" />
                           <time dateTime={filteredArticles[0].date}>{formatDate(filteredArticles[0].date)}</time>
                         </div>
                         {filteredArticles[0].readTime && (
                           <div className="flex items-center gap-2">
-                            <Clock size={16} />
+                            <Clock size={18} className="text-brand-lime-600" />
                             <span>{filteredArticles[0].readTime} min read</span>
                           </div>
                         )}
                       </div>
 
                       {/* Read More CTA */}
-                      <div className="pt-2">
-                        <span className="inline-flex items-center gap-2 text-brand-black font-semibold group-hover:gap-4 transition-all">
+                      <div className="pt-4">
+                        <span className="inline-flex items-center gap-3 px-6 py-3 bg-brand-black text-white font-black rounded-full group-hover:gap-5 group-hover:bg-brand-lime-600 group-hover:text-brand-black transition-all duration-300 shadow-lg">
                           Read Full Article
-                          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M4 10H16M16 10L10 4M16 10L10 16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                          <svg width="22" height="22" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 10H16M16 10L10 4M16 10L10 16" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
                           </svg>
                         </span>
                       </div>
@@ -199,34 +210,34 @@ const BlogPage: React.FC = () => {
               {/* Articles Grid */}
               {filteredArticles.length > 1 && (
                 <div>
-                  <h3 className="text-2xl font-bold mb-8 text-brand-black">More Articles</h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  <h3 className="text-3xl md:text-4xl font-black mb-10 text-brand-black tracking-tight">More Articles</h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                     {filteredArticles.slice(1).map(article => (
                       <Link
                         key={article.slug}
                         to={`/blog/${article.slug}`}
                         className="group h-full"
                       >
-                        <article className="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-xl hover:border-brand-lime/50 transition-all duration-300 h-full flex flex-col">
+                        <article className="bg-white border-2 border-gray-100 rounded-2xl overflow-hidden hover:shadow-[0_20px_60px_-10px_rgba(0,0,0,0.1)] hover:border-brand-lime-400 hover:-translate-y-2 transition-all duration-300 h-full flex flex-col">
                           {/* Featured Image */}
                           {article.image && (
-                            <div className="aspect-video overflow-hidden bg-gray-50">
+                            <div className="aspect-video overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100 p-4">
                               <img
                                 src={article.image}
                                 alt={article.title}
-                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
                               />
                             </div>
                           )}
 
-                          <div className="p-6 flex-grow flex flex-col">
+                          <div className="p-8 flex-grow flex flex-col">
                             {/* Tags */}
                             {article.tags.length > 0 && (
                               <div className="flex flex-wrap gap-2 mb-4">
                                 {article.tags.slice(0, 2).map(tag => (
                                   <span
                                     key={tag}
-                                    className="px-3 py-1 bg-brand-lime/10 text-brand-black text-xs font-semibold rounded-full"
+                                    className="px-3 py-1.5 bg-brand-lime-100 text-brand-black text-xs font-bold rounded-full border border-brand-lime-300"
                                   >
                                     {tag}
                                   </span>
@@ -235,24 +246,24 @@ const BlogPage: React.FC = () => {
                             )}
 
                             {/* Title */}
-                            <h3 className="text-xl font-bold mb-3 group-hover:text-brand-black/70 transition-colors line-clamp-2 leading-tight">
+                            <h3 className="text-xl md:text-2xl font-bold mb-3 group-hover:text-brand-lime-600 transition-colors line-clamp-2 leading-tight">
                               {article.title}
                             </h3>
 
                             {/* Description */}
-                            <p className="text-gray-600 mb-4 line-clamp-3 flex-grow text-sm leading-relaxed">
+                            <p className="text-gray-700 mb-6 line-clamp-3 flex-grow text-base leading-relaxed font-medium">
                               {article.description}
                             </p>
 
                             {/* Meta Info */}
-                            <div className="flex items-center gap-4 text-xs text-gray-500 mt-auto pt-4 border-t border-gray-100">
-                              <div className="flex items-center gap-1.5">
-                                <Calendar size={12} />
+                            <div className="flex items-center gap-4 text-sm font-semibold text-gray-600 mt-auto pt-4 border-t-2 border-gray-100">
+                              <div className="flex items-center gap-2">
+                                <Calendar size={14} className="text-brand-lime-500" />
                                 <time dateTime={article.date}>{formatDate(article.date)}</time>
                               </div>
                               {article.readTime && (
-                                <div className="flex items-center gap-1.5">
-                                  <Clock size={12} />
+                                <div className="flex items-center gap-2">
+                                  <Clock size={14} className="text-brand-lime-500" />
                                   <span>{article.readTime} min</span>
                                 </div>
                               )}

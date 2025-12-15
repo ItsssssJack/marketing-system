@@ -7,8 +7,34 @@ body {
   background-color: #FFFFFF;
   color: #000000;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+@layer utilities {
+  /* Display Typography */
+  .text-display {
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    line-height: 1;
+  }
+
+  .text-display-2 {
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+  }
+
+  /* Enhanced shadows */
+  .shadow-lime-glow {
+    box-shadow: 0 25px 80px -15px rgba(191, 245, 73, 0.4);
+  }
+
+  .shadow-lime-glow-lg {
+    box-shadow: 0 35px 100px -15px rgba(191, 245, 73, 0.5);
+  }
 }
