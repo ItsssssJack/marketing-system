@@ -185,8 +185,8 @@ const ArticlePage: React.FC = () => {
             {/* Main Content Area with Sidebar */}
             <div className="grid grid-cols-1 lg:grid-cols-[1fr_250px] gap-12">
               {/* Article Content */}
-              <div className="prose prose-lg max-w-none">
-                <div dangerouslySetInnerHTML={{ __html: article.content }} />
+              <div className="article-content">
+                <div dangerouslySetInnerHTML={{ __html: article.htmlContent }} />
               </div>
 
               {/* Table of Contents Sidebar */}

@@ -1,4 +1,5 @@
 import matter from 'gray-matter';
+import { marked } from 'marked';
 
 export interface Article {
   slug: string;
@@ -9,6 +10,7 @@ export interface Article {
   image: string;
   tags: string[];
   content: string;
+  htmlContent: string;
   readTime?: number;
 }
 
@@ -26,6 +28,12 @@ export function parseMarkdownArticle(markdown: string, slug: string): Article {
   const wordCount = content.trim().split(/\s+/).length;
   const readTime = Math.ceil(wordCount / 200);
 
+  // Convert markdown to HTML
+  const htmlContent = marked(content, {
+    gfm: true,
+    breaks: true,
+  }) as string;
+
   return {
     slug,
     title: data.title || 'Untitled',
@@ -35,6 +43,7 @@ export function parseMarkdownArticle(markdown: string, slug: string): Article {
     image: data.image || '/blog-default.png',
     tags: data.tags || [],
     content,
+    htmlContent,
     readTime,
   };
 }
