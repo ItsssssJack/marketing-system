@@ -3,7 +3,7 @@ title: "Why Keyboards Are Dead in the Future"
 description: "The physical keyboard has dominated for 150 years. Here's why voice, AI, and neural interfaces are about to make typing obsolete."
 date: "2025-12-15"
 author: "Glaido Team"
-image: "/blog/keyboard-future.jpg"
+image: "/blog/keyboard-future.svg"
 tags: ["future", "voice-to-text", "technology"]
 ---
 

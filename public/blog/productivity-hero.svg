@@ -1,0 +1,20 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#F5F5F5"/>
+
+  <!-- Accent shapes -->
+  <circle cx="950" cy="150" r="180" fill="#BFF549" opacity="0.2"/>
+  <circle cx="200" cy="500" r="120" fill="#BFF549" opacity="0.15"/>
+
+  <!-- Main icon/illustration area -->
+  <g transform="translate(450, 200)">
+    <!-- Rocket/Speed icon representing productivity -->
+    <path d="M150 0 L180 60 L240 60 L195 105 L210 165 L150 135 L90 165 L105 105 L60 60 L120 60 Z" fill="#000000"/>
+    <circle cx="150" cy="80" r="40" fill="#BFF549"/>
+  </g>
+
+  <!-- Title area -->
+  <rect x="50" y="450" width="400" height="8" fill="#000000" rx="4"/>
+  <rect x="50" y="480" width="300" height="8" fill="#000000" opacity="0.3" rx="4"/>
+  <rect x="50" y="510" width="350" height="8" fill="#000000" opacity="0.3" rx="4"/>
+</svg>

@@ -3,7 +3,7 @@ title: "How Voice Typing Can Boost Your Productivity by 5x"
 description: "Discover how voice-to-text technology is transforming the way professionals work, saving hours every week and reducing typing fatigue."
 date: "2025-12-10"
 author: "Glaido Team"
-image: "/blog/productivity-voice.jpg"
+image: "/blog/productivity-hero.svg"
 tags: ["productivity", "voice-to-text", "workflow"]
 ---
 

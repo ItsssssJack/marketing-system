@@ -28,10 +28,20 @@ export function parseMarkdownArticle(markdown: string, slug: string): Article {
   const wordCount = content.trim().split(/\s+/).length;
   const readTime = Math.ceil(wordCount / 200);
 
+  // Configure marked to add IDs to headings
+  const renderer = new marked.Renderer();
+  const originalHeading = renderer.heading.bind(renderer);
+
+  renderer.heading = function({ text, depth, tokens }) {
+    const id = generateSlug(typeof text === 'string' ? text : tokens?.[0]?.text || '');
+    return `<h${depth} id="${id}">${text}</h${depth}>`;
+  };
+
   // Convert markdown to HTML
   const htmlContent = marked(content, {
     gfm: true,
     breaks: true,
+    renderer,
   }) as string;
 
   return {

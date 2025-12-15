@@ -3,7 +3,7 @@ title: "Voice Typing vs Traditional Typing: The Complete Comparison"
 description: "An in-depth analysis of voice typing versus keyboard typing, covering speed, accuracy, use cases, and when each method works best."
 date: "2025-12-12"
 author: "Glaido Team"
-image: "/blog/voice-vs-typing.jpg"
+image: "/blog/voice-vs-typing.svg"
 tags: ["voice-to-text", "comparison", "workflow"]
 ---
 

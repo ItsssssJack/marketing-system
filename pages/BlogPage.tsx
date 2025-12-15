@@ -68,7 +68,7 @@ const BlogPage: React.FC = () => {
 
         {/* Search and Filter */}
         <section className="max-w-7xl mx-auto px-5 md:px-10 pb-12">
-          <div className="flex flex-col md:flex-row gap-4 items-start md:items-center justify-between">
+          <div className="flex flex-col gap-6">
             {/* Search */}
             <div className="relative w-full md:w-96">
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
@@ -97,7 +97,7 @@ const BlogPage: React.FC = () => {
                 <button
                   key={tag}
                   onClick={() => setSelectedTag(tag)}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                  className={`px-4 py-2 rounded-full text-sm font-medium transition-colors whitespace-nowrap ${
                     selectedTag === tag
                       ? 'bg-brand-black text-white'
                       : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
@@ -122,9 +122,9 @@ const BlogPage: React.FC = () => {
                 <Link
                   key={article.slug}
                   to={`/blog/${article.slug}`}
-                  className="group"
+                  className="group h-full"
                 >
-                  <article className="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-xl hover:border-brand-lime/20 transition-all duration-300">
+                  <article className="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-xl hover:border-brand-lime/20 transition-all duration-300 h-full flex flex-col">
                     {/* Featured Image */}
                     {article.image && (
                       <div className="aspect-video overflow-hidden bg-gray-100">
@@ -136,7 +136,7 @@ const BlogPage: React.FC = () => {
                       </div>
                     )}
 
-                    <div className="p-6">
+                    <div className="p-6 flex-grow flex flex-col">
                       {/* Tags */}
                       {article.tags.length > 0 && (
                         <div className="flex flex-wrap gap-2 mb-3">
@@ -157,12 +157,12 @@ const BlogPage: React.FC = () => {
                       </h2>
 
                       {/* Description */}
-                      <p className="text-gray-600 mb-4 line-clamp-3">
+                      <p className="text-gray-600 mb-4 line-clamp-3 flex-grow">
                         {article.description}
                       </p>
 
                       {/* Meta Info */}
-                      <div className="flex items-center gap-4 text-sm text-gray-400">
+                      <div className="flex items-center gap-4 text-sm text-gray-400 mt-auto">
                         <div className="flex items-center gap-1">
                           <Calendar size={14} />
                           <time dateTime={article.date}>{formatDate(article.date)}</time>

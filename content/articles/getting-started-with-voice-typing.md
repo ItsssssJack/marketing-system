@@ -3,7 +3,7 @@ title: "Getting Started with Voice Typing: A Beginner's Guide"
 description: "Everything you need to know to start using voice-to-text technology effectively, from setup to advanced tips and tricks."
 date: "2025-12-08"
 author: "Glaido Team"
-image: "/blog/getting-started.jpg"
+image: "/blog/getting-started.svg"
 tags: ["tutorial", "beginners", "voice-to-text"]
 ---
 
