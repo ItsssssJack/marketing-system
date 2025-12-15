@@ -1,5 +1,11 @@
 import matter from 'gray-matter';
 import { marked } from 'marked';
+import { Buffer } from 'buffer';
+
+// Ensure Buffer is available globally
+if (typeof window !== 'undefined') {
+  window.Buffer = Buffer;
+}
 
 export interface Article {
   slug: string;

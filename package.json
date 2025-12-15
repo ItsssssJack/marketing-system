@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "buffer": "^6.0.3",
     "canvas-confetti": "1.9.2",
     "date-fns": "^4.1.0",
     "framer-motion": "^12.23.26",
