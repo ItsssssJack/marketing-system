@@ -55,7 +55,7 @@ const BlogPage: React.FC = () => {
 
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="relative max-w-7xl mx-auto px-5 md:px-10 pt-40 pb-24 overflow-hidden">
+        <section className="relative max-w-7xl mx-auto px-5 md:px-10 pt-32 md:pt-40 lg:pt-48 pb-24 overflow-hidden">
           {/* Background decorative elements */}
           <div className="absolute top-20 right-10 w-64 h-64 bg-brand-lime-200 rounded-full opacity-20 blur-3xl"></div>
           <div className="absolute top-40 left-0 w-48 h-48 bg-brand-accent-purple rounded-full opacity-10 blur-3xl"></div>
